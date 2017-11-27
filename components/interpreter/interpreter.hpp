@@ -46,22 +46,28 @@ namespace Interpreter
             ~Interpreter();
 
             void installSegment0 (int code, Opcode1 *opcode);
-            ///< ownership of \a opcode is transferred to *this.
+            ///< Add segment 0 instruction (6b opcode, 24b argument).
+            ///  Ownership of \a opcode is transferred to *this.
 
             void installSegment1 (int code, Opcode2 *opcode);
-            ///< ownership of \a opcode is transferred to *this.
+            ///< Add segment 1 instruction (6b opcode, 12b argument, 12b argument).
+            ///  Ownership of \a opcode is transferred to *this.
 
             void installSegment2 (int code, Opcode1 *opcode);
-            ///< ownership of \a opcode is transferred to *this.
+            ///< Add segment 2 instruction (10b opcode, 20b argument).
+            ///  Ownership of \a opcode is transferred to *this.
 
             void installSegment3 (int code, Opcode1 *opcode);
-            ///< ownership of \a opcode is transferred to *this.
+            ///< Add segment 3 instruction (18b opcode, 8b argument).
+            ///  Ownership of \a opcode is transferred to *this.
 
             void installSegment4 (int code, Opcode2 *opcode);
-            ///< ownership of \a opcode is transferred to *this.
+            ///< Add segment 4 instruction (10b opcode, 8b argument, 8b argument).
+            ///  Ownership of \a opcode is transferred to *this.
 
             void installSegment5 (int code, Opcode0 *opcode);
-            ///< ownership of \a opcode is transferred to *this.
+            ///< Add segment 5 instruction (26b opcode).
+            ///  Ownership of \a opcode is transferred to *this.
 
             void run (const Type_Code *code, int codeSize, Context& context);
     };

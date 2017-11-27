@@ -40,7 +40,6 @@ Pathgrid::~Pathgrid()
     }
 }
 
-
 bool Pathgrid::toggleRenderMode (int mode){
     switch (mode)
     {

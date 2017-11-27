@@ -29,6 +29,10 @@ namespace MWRender
 
     class CreateMapWorkItem;
 
+    ///
+    /// \brief Handles rendering of the global (zoomed-out) map.
+    ///
+
     class GlobalMap
     {
     public:

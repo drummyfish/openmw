@@ -10,11 +10,11 @@ namespace Interpreter
 {
     void Interpreter::execute (Type_Code code)
     {
-        unsigned int segSpec = code>>30;
+        unsigned int segSpec = code>>30;   // 2 MSBs = segment number, 30 bits remain
 
         switch (segSpec)
         {
-            case 0:
+            case 0:    // segment 0: 6b opcode, 24b argument
             {
                 int opcode = code>>24;
                 unsigned int arg0 = code & 0xffffff;
@@ -29,7 +29,7 @@ namespace Interpreter
                 return;
             }
 
-            case 1:
+            case 1:    // segment 1: 6b opcode, 12b argument, 12b argument
             {
                 int opcode = (code>>24) & 0x3f;
                 unsigned int arg0 = (code>>16) & 0xfff;
@@ -45,7 +45,7 @@ namespace Interpreter
                 return;
             }
 
-            case 2:
+            case 2:    // segment 2: 10b opcode, 20b argument
             {
                 int opcode = (code>>20) & 0x3ff;
                 unsigned int arg0 = code & 0xfffff;
@@ -61,11 +61,11 @@ namespace Interpreter
             }
         }
 
-        segSpec = code>>26;
+        segSpec = code>>26;  // 2 MSB = 11, take next 4 bits, 26 bits remain
 
         switch (segSpec)
         {
-            case 0x30:
+            case 0x30: // segment 3: 18b opcode, 8b argument
             {
                 int opcode = (code>>8) & 0x3ffff;
                 unsigned int arg0 = code & 0xff;
@@ -80,7 +80,7 @@ namespace Interpreter
                 return;
             }
 
-            case 0x31:
+            case 0x31: // segment 4: 10b opcode, 8b argument, 8b argument
             {
                 int opcode = (code>>16) & 0x3ff;
                 unsigned int arg0 = (code>>8) & 0xff;
@@ -96,7 +96,7 @@ namespace Interpreter
                 return;
             }
 
-            case 0x32:
+            case 0x32: // segment 5: 26b opcode
             {
                 int opcode = code & 0x3ffffff;
 

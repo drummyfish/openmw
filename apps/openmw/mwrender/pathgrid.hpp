@@ -28,10 +28,12 @@ namespace MWWorld
 
 namespace MWRender
 {
+    /// \brief Handles rendering of the AI path grid.
     class Pathgrid
     {
         bool mPathgridEnabled;
 
+        /// Turn pathgrid rendering on/off.
         void togglePathgrid();
 
         typedef std::vector<const MWWorld::CellStore *> CellList;
@@ -51,6 +53,9 @@ namespace MWRender
     public:
         Pathgrid(osg::ref_ptr<osg::Group> root);
         ~Pathgrid();
+
+        /// React to given render mode being set.
+        /// @param mode render mode (defined in rendermode.hpp)
         bool toggleRenderMode (int mode);
 
         void addCell(const MWWorld::CellStore* store);

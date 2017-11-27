@@ -108,7 +108,10 @@ namespace MWRender
         void configureFog(const ESM::Cell* cell);
         void configureFog(float fogDepth, float underwaterFog, const osg::Vec4f& colour);
 
+        /// Load given cell.
         void addCell(const MWWorld::CellStore* store);
+
+        /// Unload given cell.
         void removeCell(const MWWorld::CellStore* store);
 
         void enableTerrain(bool enable);
@@ -153,10 +156,10 @@ namespace MWRender
 
         void spawnEffect(const std::string &model, const std::string &texture, const osg::Vec3f &worldPosition, float scale = 1.f, bool isMagicVFX = true);
 
-        /// Clear all savegame-specific data
+        /// Clear all savegame-specific data.
         void clear();
 
-        /// Clear all worldspace-specific data
+        /// Clear all worldspace-specific data.
         void notifyWorldSpaceChanged();
 
         void update(float dt, bool paused);
@@ -218,7 +221,12 @@ namespace MWRender
         osg::ref_ptr<osgUtil::IntersectionVisitor> mIntersectionVisitor;
 
         osg::ref_ptr<osgViewer::Viewer> mViewer;
+
+        /// Root node of the whole scene graph, i.e. everything to be rendered (such as the scene, GUI etc.).
         osg::ref_ptr<osg::Group> mRootNode;
+
+        /// Root node of the scene that surrounds the player, child of mRootNode. Note that not everything
+        /// that is to be rendered is part of the game scene, such as water reflection camera, GUI etc.
         osg::ref_ptr<osg::Group> mSceneRoot;
         Resource::ResourceSystem* mResourceSystem;
 

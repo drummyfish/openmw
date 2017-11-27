@@ -3,6 +3,10 @@
 /// \ingroup apps
 /// \defgroup openmw OpenMW
 
+/// \namespace MWBase
+/// \ingroup openmw
+/// \brief Abstract interfaces of subsystems so that implementations can easily be changed.
+
 /// \namespace OMW
 /// \ingroup openmw
 /// \brief Integration of OpenMW-subsystems
@@ -42,3 +46,10 @@
 /// \namespace MWScript
 /// \ingroup openmw
 /// \brief MW-specific script extensions and integration of the script system into OpenMW
+
+/// \namespace MWState
+/// \ingroup openmw
+/// \brief Saving and loading of game state.
+
+/// \namespace SceneUtil
+/// \brief Generally useful classes for working with the scene graph.

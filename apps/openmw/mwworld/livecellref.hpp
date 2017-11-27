@@ -67,7 +67,7 @@ namespace MWWorld
         return cellRef.mRef.getRefNum()==refNum;
     }
 
-    /// A reference to one object (of any type) in a cell.
+    /// \brief A reference to one object (of any type) in a cell.
     ///
     /// Constructing this with a CellRef instance in the constructor means that
     /// in practice (where D is RefData) the possibly mutable data is copied

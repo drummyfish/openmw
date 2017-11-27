@@ -31,8 +31,9 @@ namespace osg
 namespace MWRender
 {
     ///
-    /// \brief Local map rendering
+    /// \brief Handles local (zoomed-in) map rendering.
     ///
+
     class LocalMap
     {
     public:
